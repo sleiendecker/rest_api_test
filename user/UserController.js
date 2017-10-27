@@ -32,8 +32,8 @@ router.get('/', (req, res) => {
 // gets a s ingle user from the db
 router.get('/:id', (req, res) => {
   User.findById(req.params.id, (err, user) => {
-    if (err) return res.status(500).send(`There was a problem finding user ${user}`);
-    if (!user) return res.statusCode(404).send(`Unable finding user ${user}`);
+    if (err) return res.status(500).send(`There was a problem finding user with id ${req.params.id}`);
+    if (!user) return res.statusCode(404).send(`Unable finding user ${req.params.id}`);
     res.status(200).send(user);
   });
 
